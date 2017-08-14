@@ -1,0 +1,255 @@
+[ INFO ] Checking new version of iRedMail ...
+ + < DEBUG > Creating necessary directories ...
+[ INFO ] apt-get update ...
+[ INFO ] Fetching source tarballs ...
+[ INFO ] + 1 of 3: http://iredmail.org/yum/misc/roundcubemail-1.2.4-complete.tar.gz
+[ INFO ] + 2 of 3: http://iredmail.org/yum/misc/iRedAPD-2.0.tar.bz2
+[ INFO ] + 3 of 3: http://iredmail.org/yum/misc/iRedAdmin-0.7.tar.bz2
+[ INFO ] Validate packages ...
+[ INFO ] Install package: dialog
+[ INFO ] Installing package(s): dialog
+<< ERROR >> Please configure a fully qualified domain name (FQDN) in /etc/hosts before we go further.
+
+Example:
+
+127.0.0.1   mail.iredmail.org mail localhost
+
+<< ERROR >> Please configure a fully qualified domain name (FQDN) in /etc/hosts before we go further.
+
+Example:
+
+127.0.0.1   mail.iredmail.org mail localhost
+
+<< ERROR >> Please configure a fully qualified domain name (FQDN) in /etc/hosts before we go further.
+
+Example:
+
+127.0.0.1   mail.iredmail.org mail localhost
+
+<< ERROR >> Please configure a fully qualified domain name (FQDN) in /etc/hosts before we go further.
+
+Example:
+
+127.0.0.1   mail.iredmail.org mail localhost
+
+<< ERROR >> Please configure a fully qualified domain name (FQDN) in /etc/hosts before we go further.
+
+Example:
+
+127.0.0.1   mail.iredmail.org mail localhost
+
+[ INFO ] Checking configuration file: /home/siv/Documents/iredmailserver/iRedMail-0.9.6/config ...
+[ INFO ] NOT FOUND. Launching installation wizard to generate one.
+[ INFO ] Installing package(s): postfix postfix-pcre mysql-client mysql-server postfix-mysql libdbd-mysql-perl libaprutil1-dbd-mysql php-json php-gd php-mcrypt php-curl mcrypt php-intl php-xml php-mbstring php-mysql apache2 apache2-utils libapache2-mod-php dovecot-imapd dovecot-pop3d dovecot-lmtpd dovecot-managesieved dovecot-sieve dovecot-mysql amavisd-new libcrypt-openssl-rsa-perl libmail-dkim-perl clamav-freshclam clamav-daemon spamassassin altermime arj zoo nomarch cpio lzop cabextract p7zip rpm ripole libmail-spf-perl unrar-free pax python-sqlalchemy python-dnspython python-mysqldb python-pymysql python-jinja2 python-netifaces python-webpy python-beautifulsoup python-lxml python-pycurl libapache2-mod-wsgi python-bcrypt awstats fail2ban bzip2 acl patch cron tofrodos logwatch unzip bsdutils liblz4-tool
+ + < DEBUG > Service control: enable rsyslog.
+Synchronizing state of rsyslog.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable rsyslog
+ + < DEBUG > Service control: enable postfix.
+postfix.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install enable postfix
+ + < DEBUG > Service control: enable mysql.
+Synchronizing state of mysql.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable mysql
+ + < DEBUG > Service control: enable apache2.
+apache2.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install enable apache2
+ + < DEBUG > Service control: enable dovecot.
+Synchronizing state of dovecot.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable dovecot
+ + < DEBUG > Service control: enable clamav-daemon.
+Synchronizing state of clamav-daemon.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable clamav-daemon
+ + < DEBUG > Service control: enable amavis.
+amavis.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install enable amavis
+ + < DEBUG > Service control: enable clamav-freshclam.
+Synchronizing state of clamav-freshclam.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable clamav-freshclam
+ + < DEBUG > Service control: enable fail2ban.
+Synchronizing state of fail2ban.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable fail2ban
+ + < DEBUG > Service control: enable cron.
+Synchronizing state of cron.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable cron
+ + < DEBUG > Service control: disable php7.?-fpm.
+Failed to execute operation: No such file or directory
+ + < DEBUG > Service control: disable spamassassin.
+Synchronizing state of spamassassin.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install disable spamassassin
+insserv: warning: current start runlevel(s) (empty) of script `spamassassin' overrides LSB defaults (2 3 4 5).
+insserv: warning: current stop runlevel(s) (0 1 2 3 4 5 6) of script `spamassassin' overrides LSB defaults (0 1 6).
+ + < DEBUG > Service control: disable ufw.
+Synchronizing state of ufw.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install disable ufw
+insserv: warning: current start runlevel(s) (empty) of script `ufw' overrides LSB defaults (S).
+insserv: warning: current stop runlevel(s) (1 S) of script `ufw' overrides LSB defaults (1).
+[ INFO ] Create self-signed SSL certification files (2048 bits).
+[ INFO ] Generate Diffie Hellman Group with openssl, please wait.
+[ INFO ] Create required system account: vmail, iredadmin, iredapd.
+ + < DEBUG > Create system account: vmail:vmail (2000:2000).
+ + < DEBUG > Create directory used to store global sieve filters: /var/vmail/sieve.
+ + < DEBUG > Create system account: iredadmin:iredadmin (2001:2001)
+ + < DEBUG > Create system account: iredapd:iredapd (2002:2002).
+[ INFO ] Configure Apache web server.
+ + < DEBUG > Basic configurations.
+ + < DEBUG > Set correct SSL Cert/Key file location.
+ + < DEBUG > Enable Apache modules.
+Enabling site default-ssl.
+To activate the new configuration, you need to run:
+  service apache2 reload
+Considering dependency setenvif for ssl:
+Module setenvif already enabled
+Considering dependency mime for ssl:
+Module mime already enabled
+Considering dependency socache_shmcb for ssl:
+Enabling module socache_shmcb.
+Enabling module ssl.
+See /usr/share/doc/apache2/README.Debian.gz on how to configure SSL and create self-signed certificates.
+Considering dependency filter for deflate:
+Module filter already enabled
+Module deflate already enabled
+Enabling module headers.
+To activate the new configuration, you need to run:
+  service apache2 restart
+[ INFO ] Configure PHP.
+ + < DEBUG > Hide PHP Version in Apache from remote users requests: /etc/php/7.?/cli/php.ini.
+ + < DEBUG > Increase 'memory_limit' to 256M: /etc/php/7.?/cli/php.ini.
+ + < DEBUG > Increase 'upload_max_filesize', 'post_max_size' to 10/12M: /etc/php/7.?/cli/php.ini.
+ + < DEBUG > Disable php extension: suhosin. /etc/php/7.?/cli/php.ini.
+WARNING: Module intl ini file doesn't exist under /etc/php/5.6/mods-available
+WARNING: Module intl ini file doesn't exist under /etc/php/5.6/mods-available
+[ INFO ] Configure MySQL database server.
+ + < DEBUG > Initialize MySQL server.
+ + < DEBUG > Stop MySQL service before initializing database or updating my.cnf.
+ + < DEBUG > Service control: stop mysql.
+ + < DEBUG > Disable 'skip-networking' in my.cnf.
+ + < DEBUG > Enable 'innodb_file_per_table' in my.cnf.
+ + < DEBUG > Restart service: mysql.
+ + < DEBUG > Service control: restart mysql.
+ + < DEBUG > Sleep 10 seconds for MySQL daemon initialization ...
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+ + < DEBUG > MySQL root password is not empty, not reset.
+ + < DEBUG > Generate defauts file for MySQL client option --defaults-file: /root/.my.cnf.
+ + < DEBUG > Delete anonymous database user.
+ + < DEBUG > Generate sample SQL templates.
+ + < DEBUG > Create database: vmail.
+ + < DEBUG > Initialize database: vmail.
+ + < DEBUG > Add first domain and postmaster@ user.
+[ INFO ] Setup daily cron job to backup SQL databases with /var/vmail/backup/backup_mysql.sh
+[ INFO ] Configure Postfix (MTA).
+ + < DEBUG > Enable chroot.
+ + < DEBUG > Enable submission and additional transports required by Amavisd and Dovecot.
+ + < DEBUG > Copy: /etc/{hosts,resolv.conf,localtime,services} -> /var/spool/postfix/etc/
+ + < DEBUG > Disable duplicate log entries (mail.{info,warn,err}) in syslog config file.
+ + < DEBUG > Configure Postfix for SQL/LDAP lookup.
+ + < DEBUG > Enable postscreen service.
+ + < DEBUG > Comment out 'smtp inet ... smtpd' service in /etc/postfix/master.cf.
+ + < DEBUG > Uncomment the new 'smtpd pass ... smtpd' service in /etc/postfix/master.cf.
+ + < DEBUG > Uncomment the new smtp inet ... postscreen service in /etc/postfix/master.cf.
+ + < DEBUG > Uncomment the new 'tlsproxy unix ... tlsproxy' service in /etc/postfix/master.cf.
+ + < DEBUG > Uncomment the new 'dnsblog unix ... dnsblog' service in /etc/postfix/master.cf.
+ + < DEBUG > Update /etc/postfix/main.cf to enable postscreen.
+ + < DEBUG > Create /var/spool/postfix//var/lib/postfix/postscreen_cache.db.
+[ INFO ] Configure Dovecot (POP3/IMAP/Managesieve/LMTP/LDA).
+ + < DEBUG > Copy sample Dovecot config file: /home/siv/Documents/iredmailserver/iRedMail-0.9.6/samples/dovecot/dovecot22.conf -> /etc/dovecot/dovecot.conf
+ + < DEBUG > Configure dovecot: /etc/dovecot/dovecot.conf.
+ + < DEBUG > Copy global sieve filter rule file: /var/vmail/sieve/dovecot.sieve.
+ + < DEBUG > Enable dovecot SASL support in postfix: /etc/postfix/main.cf.
+ + < DEBUG > Create directory for Dovecot plugin: Expire.
+ + < DEBUG > Configure Dovecot logging.
+ + < DEBUG > Create dovecot log file: /var/log/dovecot.log.
+ + < DEBUG > Create dovecot log file: /var/log/dovecot-lda.log.
+ + < DEBUG > Create dovecot log file: /var/log/dovecot-imap.log.
+ + < DEBUG > Create dovecot log file: /var/log/dovecot-pop3.log.
+ + < DEBUG > Create dovecot log file: /var/log/dovecot-sieve.log.
+ + < DEBUG > Setting logrotate for dovecot log file.
+[ INFO ] Configure ClamAV (anti-virus toolkit).
+ + < DEBUG > Configure ClamAV: /etc/clamav/clamd.conf.
+ + < DEBUG > Configure freshclam: /etc/clamav/freshclam.conf.
+[ INFO ] Configure Amavisd-new (interface between MTA and content checkers).
+ + < DEBUG > Configure amavisd-new: /etc/amavis/conf.d/50-user.
+Adding user clamav to group amavis
+ + < DEBUG > Generate DKIM pem files: /var/lib/dkim/asimisoft.com.pem.
+ + < DEBUG > Setting cron job for vmail user to delete virus mail per month.
+ + < DEBUG > Import Amavisd database and privileges.
+[ INFO ] Configure SpamAssassin (content-based spam filter).
+ + < DEBUG > Copy sample SpamAssassin config file: /home/siv/Documents/iredmailserver/iRedMail-0.9.6/samples/spamassassin/local.cf -> /etc/mail/spamassassin/local.cf.
+ + < DEBUG > Enable crontabs for SpamAssassin update.
+[ INFO ] Configure iRedAPD (postfix policy daemon).
+ + < DEBUG > Extracting: iRedAPD-2.0.tar.bz2 -> /opt
+ + < DEBUG > Configure iRedAPD.
+ + < DEBUG > Create symbol link: /opt/iredapd/rc_scripts.iredapd.service -> /etc/systemd/system/multi-user.target.wants//iredapd.service.
+ + < DEBUG > Make iredapd start after system startup.
+ + < DEBUG > Service control: enable iredapd.
+Failed to execute operation: No such file or directory
+ + < DEBUG > Import iRedAPD database template.
+[ INFO ] Configure iRedAdmin (official web-based admin panel).
+ + < DEBUG > Enable apache module: wsgi.
+Module wsgi already enabled
+ + < DEBUG > Extracting: iRedAdmin-0.7.tar.bz2 -> /opt/www
+ + < DEBUG > Set correct permission for iRedAdmin: /opt/www/iRedAdmin-0.7.
+ + < DEBUG > Create directory alias for iRedAdmin.
+Enabling conf iredadmin.
+To activate the new configuration, you need to run:
+  service apache2 reload
+ + < DEBUG > Import iRedAdmin database template.
+ + < DEBUG > Configure iRedAdmin.
+ + < DEBUG > Configure general settings.
+ + < DEBUG > Configure iredadmin database related settings.
+ + < DEBUG > Configure SQL mail accounts related settings.
+ + < DEBUG > Configure Amavisd related settings.
+ + < DEBUG > Configure iRedAPD related settings.
+[ INFO ] Configure Fail2ban (authentication failure monitor).
+ + < DEBUG > Log into syslog instead of log file.
+ + < DEBUG > Disable all default filters in /etc/fail2ban/jail.conf.
+ + < DEBUG > Create Fail2ban config file: /etc/fail2ban/jail.local.
+ + < DEBUG > Copy sample Fail2ban filter config files.
+[ INFO ] Configure Roundcube webmail.
+ + < DEBUG > Extracting: roundcubemail-1.2.4-complete.tar.gz -> /opt/www
+ + < DEBUG > Set correct permission for Roundcubemail: /opt/www/roundcubemail-1.2.4.
+ + < DEBUG > Create directory alias for Roundcubemail.
+Enabling conf roundcubemail.
+To activate the new configuration, you need to run:
+  service apache2 reload
+ + < DEBUG > Import SQL database and privileges for Roundcubemail.
+ + < DEBUG > Configure database for Roundcubemail: /opt/www/roundcubemail-1.2.4/config/*.
+ + < DEBUG > Setup daily cron job to keep SQL database clean.
+ + < DEBUG > Config plugin: managesieve.
+ + < DEBUG > Config plugin: password.
+ + < DEBUG > Config plugin: enigma.
+[ INFO ] Configure Awstats (logfile analyzer for mail and web server).
+ + < DEBUG > Generate apache config file for awstats: /etc/apache2/conf-available/awstats.conf.
+Enabling module cgi.
+To activate the new configuration, you need to run:
+  service apache2 restart
+Conf serve-cgi-bin disabled.
+To activate the new configuration, you need to run:
+  service apache2 reload
+Enabling conf awstats.
+To activate the new configuration, you need to run:
+  service apache2 reload
+ + < DEBUG > Generate htpasswd file: /etc/apache2/awstats.users.
+Adding password for user postmaster@asimisoft.com
+ + < DEBUG > Config awstats to analyze apache web access log: /etc/awstats/awstats.web.conf.
+ + < DEBUG > Config awstats to analyze postfix mail log: /etc/awstats/awstats.smtp.conf.
+ + < DEBUG > Setup crontab jobs for awstats.
+ + < DEBUG > Mail sensitive administration info to postmaster@asimisoft.com.
+ + < DEBUG > Set file permission to 0600: /var/spool/cron/crontabs/root.
+ + < DEBUG > Set file permission to 0600: /var/spool/cron/crontabs/amavis.
+[ INFO ] Copy firewall sample rules: /etc/default/iptables.
+ + < DEBUG > Service control: enable iptables.
+iptables.service is not a native service, redirecting to systemd-sysv-install
+Executing /lib/systemd/systemd-sysv-install enable iptables
+[ INFO ] Restarting firewall ...
+ + < DEBUG > Service control: restart iptables.
+[ INFO ] Updating ClamAV database (freshclam), please wait ...
+ + < DEBUG > Send info of chosed packages to iRedMail team to help improve iRedMail:
+ + < DEBUG > 
+ + < DEBUG > 	MYSQL=YES
+ + < DEBUG > 	WEB_SERVER=APACHE
+ + < DEBUG > 	ROUNDCUBE=YES
+ + < DEBUG > 	SOGO=
+ + < DEBUG > 	AWSTATS=YES
+ + < DEBUG > 	FAIL2BAN=YES
+ + < DEBUG > 	IREDADMIN=YES
+ + < DEBUG > 

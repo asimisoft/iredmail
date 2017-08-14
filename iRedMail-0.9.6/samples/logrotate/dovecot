@@ -1,0 +1,17 @@
+/var/log/dovecot*.log {
+    compress
+    weekly
+    rotate 10
+    create 0600 PH_VMAIL_USER_NAME PH_VMAIL_GROUP_NAME
+    missingok
+
+    # Use bzip2 for compress.
+    #compresscmd bzip2
+    #uncompresscmd bunzip2
+    #compressoptions -9
+    #compressext .bz2
+
+    postrotate
+        doveadm log reopen
+    endscript
+}

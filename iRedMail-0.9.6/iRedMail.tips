@@ -1,0 +1,199 @@
+Admin of domain asimisoft.com:
+
+    * Account: postmaster@asimisoft.com
+    * Password: password
+
+    You can login to iRedAdmin with this account, login name is full email address.
+
+First mail user:
+    * Username: postmaster@asimisoft.com
+    * Password: password
+    * SMTP/IMAP auth type: login
+    * Connection security: STARTTLS or SSL/TLS
+
+    You can login to webmail with this account, login name is full email address.
+
+* Enabled services: rsyslog  postfix mysql apache2 dovecot clamav-daemon amavis clamav-freshclam fail2ban cron
+
+
+SSL cert keys (size: 2048):
+    - /etc/ssl/certs/iRedMail.crt
+    - /etc/ssl/private/iRedMail.key
+
+Mail Storage:
+    - Mailboxes: /var/vmail/vmail1
+    - Mailbox indexes: 
+    - Global sieve filters: /var/vmail/sieve
+    - Backup scripts and backup copies: /var/vmail/backup
+
+Apache:
+    * Configuration files:
+        - /etc/apache2
+        - /etc/apache2/apache2.conf
+        - /etc/apache2/conf-available/*
+    * Directories:
+        - /opt/www
+        - /var/www/html
+    * See also:
+        - /var/www/html/index.html
+
+PHP:
+    * PHP config file for Apache: /etc/php/7.?/cli/php.ini (not exist if you're running Nginx)
+    * PHP config file for Nginx:  (not exist if you're running Apache)
+    * Disabled functions: apache_setenv,posix_uname,eval,pcntl_wexitstatus,posix_getpwuid,xmlrpc_entity_decode,pcntl_wifstopped,pcntl_wifexited,pcntl_wifsignaled,phpAds_XmlRpc,pcntl_strerror,ftp_exec,pcntl_wtermsig,mysql_pconnect,php_uname,proc_nice,pcntl_sigtimedwait,posix_kill,pcntl_sigprocmask,fput,phpinfo,system,phpAds_remoteInfo,ftp_login,inject_code,posix_mkfifo,highlight_file,escapeshellcmd,show_source,pcntl_wifcontinued,fp,pcntl_alarm,pcntl_wait,ini_alter,posix_setpgid,parse_ini_file,ftp_raw,pcntl_waitpid,pcntl_getpriority,ftp_connect,pcntl_signal_dispatch,pcntl_wstopsig,apache_child_terminate,ini_restore,ftp_put,passthru,proc_terminate,posix_setsid,pcntl_signal,pcntl_setpriority,proc_get_status,phpAds_xmlrpcEncode,pcntl_exec,ftp_nb_fput,ftp_get,phpAds_xmlrpcDecode,pcntl_sigwaitinfo,shell_exec,pcntl_get_last_error,ftp_rawlist,pcntl_fork,posix_setuid
+
+MySQL:
+    * Root user: root, Password: "root" (without quotes)
+    * Bind account (read-only):
+        - Username: vmail, Password: SLbA7D6Nvx2XQkY9FsrgaOj5mZghWV
+    * Vmail admin account (read-write):
+        - Username: vmailadmin, Password: 7hw9qLsmQXRuvgl7uFwsRqaYyIFwWr
+    * Config file: /etc/mysql/mysql.conf.d/mysqld.cnf
+    * RC script: /etc/init.d/mysql
+
+Virtual Users:
+    - /home/siv/Documents/iredmailserver/iRedMail-0.9.6/samples/iredmail/iredmail.mysql
+    - /home/siv/Documents/iredmailserver/iRedMail-0.9.6/runtime/*.sql
+
+Backup MySQL database:
+    * Script: /var/vmail/backup/backup_mysql.sh
+    * See also:
+        # crontab -l -u root
+
+Postfix:
+    * Configuration files:
+        - /etc/postfix
+        - /etc/postfix/aliases
+        - /etc/postfix/main.cf
+        - /etc/postfix/master.cf
+
+    * SQL/LDAP lookup config files:
+        - /etc/postfix/mysql
+
+Dovecot:
+    * Configuration files:
+        - /etc/dovecot/dovecot.conf
+        - /etc/dovecot/dovecot-ldap.conf (For OpenLDAP backend)
+        - /etc/dovecot/dovecot-mysql.conf (For MySQL backend)
+        - /etc/dovecot/dovecot-pgsql.conf (For PostgreSQL backend)
+        - /etc/dovecot/dovecot-used-quota.conf (For real-time quota usage)
+        - /etc/dovecot/dovecot-share-folder.conf (For IMAP sharing folder)
+    * Syslog config file:
+        - /etc/rsyslog.d/0-dovecot.conf (present if rsyslog >= 8.x)
+    * RC script: /etc/init.d/dovecot
+    * Log files:
+        - /var/log/dovecot.log
+        - /var/log/dovecot-sieve.log
+        - /var/log/dovecot-lmtp.log
+        - /var/log/dovecot-lda.log (present if rsyslog >= 8.x)
+        - /var/log/dovecot-imap.log (present if rsyslog >= 8.x)
+        - /var/log/dovecot-pop3.log (present if rsyslog >= 8.x)
+        - /var/log/dovecot-sieve.log (present if rsyslog >= 8.x)
+    * See also:
+        - /var/vmail/sieve/dovecot.sieve
+        - Logrotate config file: /etc/logrotate.d/dovecot
+
+ClamAV:
+    * Configuration files:
+        - /etc/clamav/clamd.conf
+        - /etc/clamav/freshclam.conf
+        - /etc/logrotate.d/clamav
+    * RC scripts:
+            + /etc/init.d/clamav-daemon
+            + /etc/init.d/clamav-freshclam
+    * Log files:
+        - /var/log/clamav/clamd.log
+        - /var/log/clamav/freshclam.log
+
+DNS record for DKIM support:
+
+; key#1 1024 bits, i=dkim, d=asimisoft.com, /var/lib/dkim/asimisoft.com.pem
+dkim._domainkey.asimisoft.com.	3600 TXT (
+  "v=DKIM1; p="
+  "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZ6oyEQxTwRYNP5VEGgHJcqdnS"
+  "SpJkfctHxsvUgvnU8q6Hf3W5ppfoombUmoEocAC45mtpmYTQOn8M1Dnt7bK67FY/"
+  "W5Tb8Ngwj6rbTKrDd9HbcuH1Lz8M7s95hbMnzcSUgzZK65A0nguOahzBRSz2dZp6"
+  "cnDLdwRDuMf/pWzJ5wIDAQAB")
+Amavisd-new:
+    * Configuration files:
+        - /etc/amavis/conf.d/50-user
+        - /etc/postfix/master.cf
+        - /etc/postfix/main.cf
+    * RC script:
+        - /etc/init.d/amavis
+    * MySQL Database:
+        - Database name: amavisd
+        - Database user: amavisd
+        - Database password: XxUxiHbjOhic8acc6ibb3qC8lQM5aO
+        - SQL template: /home/siv/Documents/iredmailserver/iRedMail-0.9.6/samples/amavisd/amavisd.mysql
+
+SpamAssassin:
+    * Configuration files and rules:
+        - /etc/mail/spamassassin
+        - /etc/mail/spamassassin/local.cf
+
+iRedAPD - Postfix Policy Server:
+    * Version: 2.0
+    * Listen address: 127.0.0.1, port: 7777
+    * SQL database account:
+        - Database name: iredapd
+        - Username: iredapd
+        - Password: i99GUk1dp0lyinf1zQsb1Mniz6CCyH
+    * Configuration file:
+        - /opt/iredapd/settings.py
+    * Related files:
+        - /opt/iRedAPD-2.0
+        - /opt/iredapd (symbol link to /opt/iRedAPD-2.0
+
+iRedAdmin - official web-based admin panel:
+    * Version: 0.7
+    * Root directory: /opt/www/iRedAdmin-0.7
+    * Config file: /opt/www/iRedAdmin-0.7/settings.py
+    * Web access:
+        - URL: https://siv-Aspire-E5-575G.asimisoft.com/iredadmin/
+        - Username: postmaster@asimisoft.com
+        - Password: password
+    * SQL database:
+        - Database name: iredadmin
+        - Username: iredadmin
+        - Password: wEdwSMWGk5Q4x6rq2JXelp1lBisQTB
+    * See also:
+        - /etc/apache2/conf-available/iredadmin.conf
+
+Roundcube webmail: /opt/www/roundcubemail-1.2.4
+    * Config file: /opt/www/roundcubemail-1.2.4/config
+    * Web access:
+        - URL: http://siv-Aspire-E5-575G.asimisoft.com/mail/ (will be redirected to https:// site)
+        - URL: https://siv-Aspire-E5-575G.asimisoft.com/mail/ (secure connection)
+        - Username: postmaster@asimisoft.com
+        - Password: password
+    * SQL database account:
+        - Database name: roundcubemail
+        - Username: roundcube
+        - Password: agRSz0lk06uuNJZTeSuaLr2MrXqXLP
+    * See also:
+        - /etc/apache2/conf-available/roundcubemail.conf
+        - Cron job: crontab -l -u root
+
+Awstats:
+    * Configuration files:
+        - /etc/awstats
+        - /etc/awstats/awstats.web.conf
+        - /etc/awstats/awstats.smtp.conf
+        - /etc/apache2/awstats.users
+        - /etc/apache2/conf-available/awstats.conf - Available if you're running Apache
+    * Login account:
+        - Username: postmaster@asimisoft.com, password: password
+    * URL:
+        - Apache:
+            - https://siv-Aspire-E5-575G.asimisoft.com/awstats/awstats.pl?config=web
+            - https://siv-Aspire-E5-575G.asimisoft.com/awstats/awstats.pl?config=smtp
+        - Nginx:
+            - https://siv-Aspire-E5-575G.asimisoft.com/awstats/
+            - https://siv-Aspire-E5-575G.asimisoft.com/awstats/awstats.smtp.html
+            - https://siv-Aspire-E5-575G.asimisoft.com/awstats/awstats.web.html
+    * Crontab job:
+        shell> crontab -l root
+    * Command used to add a new user, or reset password for an existing user:
+        htpasswd /etc/apache2/awstats.users username
+
